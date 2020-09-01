@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+  --white: #dfdfdf;
+  --bg-color: #393939;
+  --bg-overlay-color: #202020;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--white);
+  font-family: 'Montserrat', Arial !important;
+}
+
+
+/* footer */
+footer {
+  padding: 15px;
+  color: var(--white);;
+  background-color: var(--bg-overlay-color);
+}
