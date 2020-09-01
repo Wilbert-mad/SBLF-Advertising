@@ -135,6 +135,13 @@ body {
     font-size: 1.3rem;
     border-bottom: 1px solid #f4f4f4;
   }
+  .error404 {
+    padding: 200px;
+    text-align: center;
+  }
+  .text-error404 {
+    color: #b92424;
+  }
 }
 
 /* DESKTOP MENU */
@@ -154,6 +161,13 @@ body {
   #nav-logo {
     margin-left: 1rem;
   }
+}
+.error404 {
+  padding: 200px;
+  text-align: center;
+}
+.text-error404 {
+  color: #e42c2c;
 }
 
 /* footer */

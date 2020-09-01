@@ -14,5 +14,5 @@ To get ready to work on the codebase, please do the following:
 2. Run `npm install` & `install dev dependencies`
 4. Rename `.env.exampal` to `.env` and fill in the info
 4. Code Away to your heart's content!
-5. Run `npm test` to run ESLint and ensure any JSDoc changes are valid
+5. Run `npm run lint` to run ESLint and ensure any JSDoc changes are valid
 6. Submit a pull request (Make sure you follow the conventional commit format)

@@ -4,7 +4,8 @@
   "description": "A server, bot listing for an advertising server.",
   "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "start": "node server/index.js",
     "dev": "nodemon server/index.js"
   },
@@ -23,6 +24,7 @@
     "eslint": "^7.8.0"
   },
   "dependencies": {
+    "discord.js": "^12.3.1",
     "ejs": "^3.1.5",
     "express": "^4.17.1"
   }

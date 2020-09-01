@@ -1,19 +1,13 @@
 /* eslint-disable no-useless-escape */
 const express = require('express');
-
-// temp asset
-const application = {
-  // app name
-  name: 'SBLF-Advertising',
-  // owner of this app
-  owner: 'Xa_puppet',
-  // apps icon ( can be link e.g: 'https://link...' or static img path e.g: '/img/icon.PNG')
-  appIcon: '/img/icon.png'
-};
+const application = require('../application.js');
 
 require('dotenv').config();
 const app = express();
 const path = require('path');
+
+const bot = require('./bot');
+bot.init();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -43,11 +37,9 @@ const RenderTemplate = (req, res, template, data = {}, title = {}) => {
   res.render(template, Object.assign(BaseData, data));
 };
 
-app.get('/', (req, res) => {
-  RenderTemplate(req, res, 'index');
-});
+app.get('/', (req, res) => RenderTemplate(req, res, 'index'));
 
-// app.get('*', (req, res, next) => {});
+app.get('*', (req, res) => RenderTemplate(req, res, '404'));
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`http://localhost:${port}`));
