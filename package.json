@@ -1,0 +1,21 @@
+{
+  "name": "server-listing",
+  "version": "0.0.1",
+  "description": "A server, bot listing for an advertising server.",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wilbert-mad/SBLF-Advertising.git"
+  },
+  "author": "Xa_puppet",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Wilbert-mad/SBLF-Advertising/issues"
+  },
+  "homepage": "https://github.com/Wilbert-mad/SBLF-Advertising#readme"
+}
