@@ -6,6 +6,9 @@ require('dotenv').config();
 const app = express();
 const path = require('path');
 
+const connection = require('./database/connection.js');
+connection.init();
+
 const bot = require('./bot');
 bot.init();
 
