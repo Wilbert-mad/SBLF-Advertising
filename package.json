@@ -1,6 +1,6 @@
 {
   "name": "server-listing",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A server, bot listing for an advertising server.",
   "main": "server/index.js",
   "scripts": {
@@ -26,6 +26,8 @@
   "dependencies": {
     "discord.js": "^12.3.1",
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.2",
+    "nanoid": "^3.1.12"
   }
 }
