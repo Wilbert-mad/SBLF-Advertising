@@ -10,9 +10,10 @@ module.exports = mongoose.model('users', new mongoose.Schema({
     required: true
   },
   advertisements: {
-    type: mongoose.SchemaTypes.Array,
-    required: true,
-    default: [],
+    type: [{ 
+      type: mongoose.Types.ObjectId,
+      required: true,
+    }],
   },
   adCount: {
     type: mongoose.SchemaTypes.Number,
