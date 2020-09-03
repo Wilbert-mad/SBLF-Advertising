@@ -2,7 +2,7 @@
 /* eslint-disable no-useless-escape */
 
 // app data
-const application = require('../application.js');
+const application = require('../../application.js');
 
 // set app icon
 const icon = application.appIcon.match(new RegExp(/(?!\"|\')(http|https):\/\/[a-z0-9\-\.\/]+\.(?:jpe?g|png)(?!\"|\')/g)) ? 
