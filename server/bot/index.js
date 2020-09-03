@@ -1,5 +1,6 @@
 const { Client } = require('discord.js');
-const { readdir } = require('fs').promises;
+const fsp = require('fs').promises;
+const fs = require('fs');
 
 require('dotenv').config();
 const client = new Client({
@@ -12,8 +13,27 @@ client.aliases = new Map();
 module.exports = {
   async init() {
     try {
+      // commands handler
+      fs.readdir('./server/bot/commands/', (err, files) => {
+        if (err) console.error(err);
+        const jsfiles = files.filter(f => f.split('.').pop() === 'js');
+        if (jsfiles.length <= 0) return console.log('[logs] no commands to load!');
+
+        jsfiles.forEach((f, i) => {
+          const pull = require(`../bot/commands/${f}`);
+          if (!pull.help) 
+            return console.error(`Error will loading: ${f}`);  
+          console.log(`[logs] ${i + 1}: ${f} loaded`);
+          client.commands.set(pull.help.name, pull);
+          if (!pull.help.aliases) return;
+          pull.help.aliases.forEach(alias => {
+            client.aliases.set(alias, pull.help.name);
+          });
+        });
+      });
+
       // events handler
-      const evtFiles = await readdir('./server/bot/events');
+      const evtFiles = await fsp.readdir('./server/bot/events');
       evtFiles.forEach(f => {
         const evtName = f.split('.')[0];
         console.log(`Loading Event: ${evtName}`);

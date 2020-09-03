@@ -6,8 +6,8 @@ const app = express();
 const path = require('path');
 
 // connect to database
-const connection = require('./database/connection.js');
-connection.init();
+// const connection = require('./database/connection.js');
+// connection.init();
 
 // start up bot
 const bot = require('./bot');
