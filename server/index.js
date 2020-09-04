@@ -23,7 +23,7 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
 
 passport.use(new Strategy({
-  clientID: client.server.user.id,
+  clientID: client.user.id,
   clientSecret: process.env.clientSecret,
   callbackURL: `${Application.BaseURL}/login`,
   scope: ['identify'],
