@@ -10,5 +10,5 @@ module.exports = {
   // the base url of you website e.g: 'https://google.com'
   BaseURL: 'http://localhost:8080',
   // bots user id
-  botID: 'XXXXXXXXXXXXXX',
+  botID: '750408180147814441',
 };

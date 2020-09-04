@@ -18,7 +18,7 @@ const bot = require('./bot');
 // const client = bot.client;
 bot.init();
 
-// user serialize
+// user serialization
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
 
