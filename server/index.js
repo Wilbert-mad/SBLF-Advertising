@@ -15,7 +15,7 @@ const path = require('path');
 
 // start up bot
 const bot = require('./bot');
-const client = bot.Client;
+// const client = bot.client;
 bot.init();
 
 // user serialize
@@ -23,17 +23,18 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
 
 passport.use(new Strategy({
-  clientID: client.user.id,
+  clientID: Application.botID,
   clientSecret: process.env.clientSecret,
   callbackURL: `${Application.BaseURL}/login`,
   scope: ['identify'],
 }, (accessToken, refreshToken, profile, done) => {
+  console.log(profile);
   process.nextTick(() => done(null, profile)); 
 }));
 
 // user info cookie
 app.use(session({
-  secret: process.env.message_secret,
+  secret: process.env.Message_Secret,
   cookie: { maxAge: 90000000 },
   saveUninitialized: false,
   resave: false,
@@ -49,8 +50,19 @@ app.set('view engine', 'ejs');
 // static and engine templates path
 app.use(express.static(path.join(__dirname, '../client/static/')));
 app.set('views', path.join(__dirname, '../client/templates/'));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/', (req, res) => RenderTemplate(req, res, 'index'));
+
+app.get('/login', passport.authenticate('discord', { 
+  failureRedirect: '/',
+}), (req, res) => res.redirect('/'));
+
+app.get('/logout', (req, res) => { 
+  req.logout();
+  res.redirect('/');
+});
 
 app.get('*', (req, res) => RenderTemplate(req, res, '404'));
 
