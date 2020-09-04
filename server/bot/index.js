@@ -49,4 +49,5 @@ module.exports = {
       console.error('Error connecting: ', err);
     }  
   },
+  Client: client,
 };

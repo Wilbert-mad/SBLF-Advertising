@@ -1,8 +1,12 @@
 const express = require('express');
 const { RenderTemplate } = require('./utils/Utils.js');
+const Application = require('../application.js');
 
 require('dotenv').config();
 const app = express();
+const session  = require('express-session');
+const passport = require('passport');
+const { Strategy } = require('passport-discord');
 const path = require('path');
 
 // connect to database
@@ -11,7 +15,29 @@ const path = require('path');
 
 // start up bot
 const bot = require('./bot');
+const client = bot.Client;
 bot.init();
+
+// user serialize
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((obj, done) => done(null, obj));
+
+passport.use(new Strategy({
+  clientID: client.server.user.id,
+  clientSecret: process.env.clientSecret,
+  callbackURL: `${Application.BaseURL}/login`,
+  scope: ['identify'],
+}, (accessToken, refreshToken, profile, done) => {
+  process.nextTick(() => done(null, profile)); 
+}));
+
+// user info cookie
+app.use(session({
+  secret: process.env.message_secret,
+  cookie: { maxAge: 90000000 },
+  saveUninitialized: false,
+  resave: false,
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
