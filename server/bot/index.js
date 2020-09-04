@@ -9,6 +9,7 @@ const client = new Client({
 
 client.commands = new Map();
 client.aliases = new Map();
+client.prefix = require('../../application.js').prefix;
 
 module.exports = {
   async init() {
