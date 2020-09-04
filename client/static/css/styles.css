@@ -1,7 +1,7 @@
 :root {
-  --white: #dfdfdf;
+  --white: #f3f3f3;
   --black: #191919;
-  --bg-light: #ffffff;
+  --bg-dark: #282828;
   --bg-overlay-color: #202020;
 }
 * {
@@ -11,8 +11,8 @@
 }
 body {
   max-height: 100vh;
-  background-color: var(--bg-light);
-  color: var(--black);
+  background-color: var(--bg-dark);
+  color: var(--white);
   font-family: Arial !important;
 }
 
@@ -25,8 +25,8 @@ body {
   top: 0;
   z-index: 9000;
   width: 100%;
-  background-color: white;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--bg-overlay-color);
+  border-bottom: 1px solid var(--bg-overlay-color);
   box-shadow: 1px 3px 16px 7px rgba(0,0,0,0.2);
 }
 #nav-container {
@@ -57,11 +57,11 @@ body {
   align-items: center;
 }
 #nav-logo {
-  color: #444;
+  color: #f3f3f3;
   text-decoration: none;
 }
 #nav-logo:hover {
-  color: #666;
+  color: #d1d1d1;
 }
 .nav-ul {
   display: -webkit-box;
@@ -81,7 +81,7 @@ body {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  color: #444;
+  color: #f3f3f3;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.2rem;
@@ -89,10 +89,10 @@ body {
   transition: 200ms;
 }
 .nav-link:hover {
-  background-color: #f1f1f1;
+  background-color: #232323;
 }
 .active-link {
-  background-color: #f1f1f1;
+  background-color: #292929;
 }
 
 /* MOBILE MENU */
@@ -109,7 +109,8 @@ body {
 
   #nav-menu-button {
     padding: 1rem;
-    background-color: #f1f1f1;
+    color: #f3f3f3;
+    background-color: #252525;
     cursor: pointer;
   }
 
@@ -133,7 +134,7 @@ body {
   .nav-link {
     padding: 1rem 0;
     font-size: 1.3rem;
-    border-bottom: 1px solid #f4f4f4;
+/*     border-bottom: 1px solid #f4f4f4; */
   }
   .error404 {
     padding: 200px;
